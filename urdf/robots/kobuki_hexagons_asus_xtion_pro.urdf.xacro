@@ -3,17 +3,16 @@
     - Base      : kobuki
     - Stacks    : hexagons
     - 3d Sensor : asus_xtion_pro
-    - 2d sensor : hokuyo scanner
 -->
 <robot name="turtlebot" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:include filename="$(find turtlebot_description)/urdf/turtlebot_common_library.urdf.xacro" />
   <xacro:include filename="$(find kobuki_description)/urdf/kobuki.urdf.xacro" />
   <xacro:include filename="$(find turtlebot_description)/urdf/stacks/hexagons.urdf.xacro"/>
-  <xacro:include filename="$(find turtlebot_description)/urdf/sensors/asus_xtion_pro.urdf.xacro"/>
   <!--
-  <xacro:include filename="$(find MultiViewSLAM)/urdf/sensors/asus_xtion_pro.urdf.xacro"/>
+  <xacro:include filename="$(find turtlebot_description)/urdf/sensors/asus_xtion_pro.urdf.xacro"/>
   -->
+  <xacro:include filename="$(find MultiViewSLAM)/urdf/sensors/asus_xtion_pro.urdf.xacro"/>
   <!--  <xacro:include filename="$(find MultiViewSLAM)/urdf/sensors/hokuyo.urdf.xacro"/>
     <xacro:sensor_hokuyo name="laser" parent="base_link">
       <origin xyz="0 0 0.12" rpy="0 0 0"/>
@@ -22,5 +21,5 @@
   <kobuki/>
 
   <stack_hexagons                 parent="base_link"/>
-  <sensor_asus_xtion_pro          parent="base_link"/>
+  <xacro:sensor_asus_xtion_pro          parent="base_link"/>
 </robot>
